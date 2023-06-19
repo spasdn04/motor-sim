@@ -9,6 +9,7 @@ matplotlib = "*"
 pandas = "*"
 scipy = "*"
 sympy = "*"
+opencv-python = "*"
 
 [dev-packages]
 

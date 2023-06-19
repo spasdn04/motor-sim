@@ -20,6 +20,10 @@ def QnA(Asa):
     print(f'Q(y) = {Qy}')
     
 A = np.random.randint(-4,4,[3,3])
-As = A.transpose() + A
+As = [[4,-2],[-2,1]]
 
-QnA(As)    
+QnA(As)
+
+def Gauss(As):
+    n = As.shape[0]
+    Asa =  
