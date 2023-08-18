@@ -23,7 +23,7 @@ if __name__ == '__main__':
         t = np.append(t, t[-1]+ diff)
         
         s1 = t * 1.5
-        s2 = 1*np.sin(2 * np.pi * f * t)
+        s2 = 1 * np.sin(2 * np.pi * f * t)
         s3 = 2 * np.exp(-2 * t) * np.sin(2 * np.pi * 5 * f * t)
         
         plt.cla()

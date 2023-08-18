@@ -26,4 +26,4 @@ QnA(As)
 
 def Gauss(As):
     n = As.shape[0]
-    Asa =  
+    Asa =  n

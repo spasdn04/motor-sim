@@ -10,6 +10,7 @@ pandas = "*"
 scipy = "*"
 sympy = "*"
 opencv-python = "*"
+keyboard = "*"
 
 [dev-packages]
 

@@ -28,8 +28,8 @@ for c in contenido:
     image = cv2.imread(f'fotos/{c}')
     image = cv2.resize(image,(600, 600))
     imghsv1 = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    low_intenaity1 = np.array([130, 50, 50], np.uint8)
-    high_intenaity1 = np.array([200, 255, 255], np.uint8)
+    low_intenaity1 = np.array([140, 50, 50], np.uint8)
+    high_intenaity1 = np.array([190, 255, 255], np.uint8)
     mask = cv2.inRange(imghsv1, low_intenaity1, high_intenaity1)
 
     contours,_ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -37,7 +37,7 @@ for c in contenido:
     h = 0
     for i in contours:
         areas = cv2.contourArea(i)
-        if areas > 100:
+        if areas > 50:
             x1, y1, w1, h1 = cv2.boundingRect(i)
             cv2.rectangle(image, (x1, y1), (x1 + w1, y1 + h1), (255, 0, 213), 2) # type: ignore
             h +=1
