@@ -5,29 +5,43 @@ import random as rd
 import time
 import keyboard
 
-#Generamos datos aleatorios para graficarlos
+#Generamos datos aleatorios para graficarlos, y hacemos que la lista se mueva 15 posiciones eliminando las primeras que estaban
 fig, ax = plt.subplots()
 t = [1, 1]
-c = 1
-c1 = 1
+c = 0.1
+c1 = 0.1
 data = [1000, 1000]
+start_time = time.perf_counter()
+
 while True:
-    time.sleep(0.001)
     if len(t) == 15:
         t = np.delete(t, 0)
         t = np.append(t, t[-1] + c)
         data = np.delete(data, 0)
-        data = np.append(data, np.random.randint(800, 1000))
+        if t[-1] >= 10:
+            data = np.append(data, np.random.randint(1800, 2000))
+        else:
+            data = np.append(data, np.random.randint(800, 1000))
     else:
-        c1 += 1
-        t = np.append(t, c1)
+        t = np.append(t, t[-1] + c1)
         data = np.append(data, np.random.randint(800, 1000))
     
-    print(data, t)
-
+    #print(data, t)
+    
     plt.cla()
     ax.plot(t, data ,'r')
-    plt.pause(0.001)
+    plt.title('Revoluciones')
+    ax.legend(['rpm'])
+    plt.xlabel('Tiempo (ds)')
+    plt.ylabel('rpm')
+    plt.ylim(0,2000)
+    plt.pause(0.1)
 
+    # Detenemos el bucle con el teclado
     if keyboard.is_pressed('q') == True:
+        end_time = time.perf_counter()
         break
+
+#Calculamos el tiempo de ejecución
+execution_time = end_time - start_time 
+print(f"tiempo del ciclo: {execution_time: .5f} segundos")
